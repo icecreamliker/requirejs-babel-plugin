@@ -1,0 +1,15 @@
+{
+  "name": "requirejs-babel-plugin",
+  "version": "0.1.0",
+  "authors": [
+    "Lee Yao <yaoli111144@gmail.com>"
+  ],
+  "description": "A better RequireJS plugin for babel",
+  "main": "es6.js",
+  "keywords": [
+    "es6",
+    "require",
+    "babel"
+  ],
+  "license": "MIT"
+}

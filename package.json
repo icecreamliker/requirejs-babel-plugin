@@ -1,0 +1,11 @@
+{
+  "name": "requirejs-babel-plugin",
+  "version": "0.1.0",
+  "description": "A better RequireJS plugin for babel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/icecreamliker/requirejs-babel-plugin"
+  },
+  "author": "Lee Yao <yaoli111144@gmail.com>",
+  "license": "MIT"
+}
