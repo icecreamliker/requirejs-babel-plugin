@@ -1,6 +1,6 @@
 /**
  * Author: Lee Yao <yaoli111144@gmail.com>
- * Version: 0.1.0
+ * Version: 0.1.1
  * License: MIT
  */
 
@@ -33,7 +33,7 @@ define(['babel', 'module'], function(babel, _module) {
     }
 
     return {
-        version: '0.1.0',
+        version: '0.1.1',
 
         load: function(name, req, onload, config) {
 
