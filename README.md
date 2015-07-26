@@ -54,6 +54,7 @@ Customize the babel options:
     babel: {
       blacklist: [],
       nonStandard: true,
+      fileExtension: 'js', // It is not official babel-option
       ...
     }
   });

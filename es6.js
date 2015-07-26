@@ -1,6 +1,6 @@
 /**
  * Author: Lee Yao <yaoli111144@gmail.com>
- * Version: 0.1.1
+ * Version: 0.1.2
  * License: MIT
  */
 
@@ -14,8 +14,8 @@ define(['babel', 'module'], function(babel, _module) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function(evt) {
-                //Do not explicitly handle errors, those should be
-                //visible via console output in the browser.
+                // Do not explicitly handle errors, those should be
+                // visible via console output in the browser.
                 if (xhr.readyState === 4) {
                     callback(xhr.responseText);
                 }
@@ -25,7 +25,7 @@ define(['babel', 'module'], function(babel, _module) {
     } else if (typeof process !== "undefined" &&
         process.versions &&
         !!process.versions.node) {
-        //Using special require.nodeRequire, something added by r.js.
+        // Using special require.nodeRequire, something added by r.js.
         fs = require.nodeRequire('fs');
         fetchText = function(path, callback) {
             callback(fs.readFileSync(path, 'utf8'));
@@ -33,7 +33,7 @@ define(['babel', 'module'], function(babel, _module) {
     }
 
     return {
-        version: '0.1.1',
+        version: '0.1.2',
 
         load: function(name, req, onload, config) {
 
@@ -49,6 +49,9 @@ define(['babel', 'module'], function(babel, _module) {
             for (var key in defaults) {
                 babelOptions[key] = defaults[key];
             }
+
+            // Delete unsupported option
+            delete babelOptions.fileExtension;
 
             fetchText(url, function(text) {
                 try {
