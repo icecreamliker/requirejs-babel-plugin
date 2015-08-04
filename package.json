@@ -1,7 +1,12 @@
 {
   "name": "requirejs-babel-plugin",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A better RequireJS plugin for babel",
+  "keywords": [
+    "requirejs",
+    "babel",
+    "es6"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/icecreamliker/requirejs-babel-plugin"
