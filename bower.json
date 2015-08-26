@@ -1,6 +1,6 @@
 {
   "name": "requirejs-babel-plugin",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "authors": [
     "Lee Yao <yaoli111144@gmail.com>"
   ],
@@ -10,6 +10,9 @@
     "requirejs",
     "babel",
     "es6"
+  ],
+  "ignore": [
+    "package.json"
   ],
   "license": "MIT"
 }

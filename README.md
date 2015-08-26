@@ -37,11 +37,9 @@ Reference files via the es6! plugin name:
 When optimizing the source code with r.js, exclude the babel and plugin:
 ```javascript
   modules: [{
-    "name": "your_entry_file",
-    exclude: [
-      'es6'
-    ]
-  }]
+    "name": "your_entry_file"
+  }],
+  stubModules: ['babel', 'es6'] // Stub out the modules
 ```
 
 Options
