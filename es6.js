@@ -38,7 +38,8 @@ define(['babel', 'module'], function(babel, _module) {
         load: function(name, req, onload, config) {
 
             var babelOptions = config.babel || {},
-                fileExtension = babelOptions.fileExtension || '.js',
+                pluginOptions = config.es6 || {},
+                fileExtension = pluginOptions.fileExtension || '.js',
                 url = req.toUrl(name + fileExtension);
 
             var defaults = {
@@ -49,9 +50,6 @@ define(['babel', 'module'], function(babel, _module) {
             for (var key in defaults) {
                 babelOptions[key] = defaults[key];
             }
-
-            // Delete unsupported option
-            delete babelOptions.fileExtension;
 
             fetchText(url, function(text) {
                 try {
