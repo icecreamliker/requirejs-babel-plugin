@@ -49,10 +49,12 @@ Customize the babel options:
 
 ```javascript
   requirejs.config({
+    es6: {
+      fileExtension: '.js' // put in .jsx for JSX transformation
+    },
     babel: {
       blacklist: [],
       nonStandard: true,
-      fileExtension: 'js', // It is not official babel-option
       ...
     }
   });
