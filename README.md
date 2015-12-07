@@ -45,7 +45,22 @@ When optimizing the source code with r.js, exclude the babel and plugin:
 Options
 ---
 
-Customize the babel options:
+**Babel 6.x**
+
+```javascript
+  requirejs.config({
+    es6: {
+      fileExtension: '.js' // put in .jsx for JSX transformation
+    },
+    babel: {
+      presets: ['es2015'],
+      plugins: ['transform-es2015-modules-amd']
+    }
+  });
+  
+```
+
+**Babel 5.x**
 
 ```javascript
   requirejs.config({
@@ -55,7 +70,7 @@ Customize the babel options:
     babel: {
       blacklist: [],
       nonStandard: true,
-      ...
+      modules: 'amd'
     }
   });
   
