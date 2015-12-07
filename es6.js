@@ -43,8 +43,7 @@ define(['babel', 'module'], function(babel, _module) {
                 url = req.toUrl(name + fileExtension);
 
             var defaults = {
-                modules: babelOptions.modules || 'common',
-                sourceMap: config.isBuild ? false : 'inline',
+                sourceMaps: config.isBuild ? false : 'inline',
                 sourceFileName: name
             };
             for (var key in defaults) {
