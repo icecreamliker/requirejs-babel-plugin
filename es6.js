@@ -42,6 +42,12 @@ define(['babel', 'module'], function(babel, _module) {
                 fileExtension = pluginOptions.fileExtension || '.js',
                 url = req.toUrl(name + fileExtension);
 
+            // Do not load if it is an empty: url
+            if (url.indexOf('empty:') === 0) {
+                onload();
+                return;
+            }
+
             var defaults = {
                 sourceMaps: config.isBuild ? false : 'inline',
                 sourceFileName: name
