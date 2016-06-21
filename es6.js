@@ -37,8 +37,16 @@ define(['babel', 'module'], function(babel, _module) {
 
         load: function(name, req, onload, config) {
 
-            var babelOptions = config.babel || {},
-                pluginOptions = config.es6 || {},
+            var babelOptions;
+            try {
+                // Deep clone babel config (#7)
+                babelOptions = JSON.parse(JSON.stringify(config.babel));
+            } catch (err) {
+                babelOptions = {}
+                onload.error(err);
+            }
+
+            var pluginOptions = config.es6 || {},
                 fileExtension = pluginOptions.fileExtension || '.js',
                 url = req.toUrl(name + fileExtension);
 
