@@ -1,6 +1,6 @@
 {
   "name": "requirejs-babel-plugin",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A better RequireJS plugin for babel",
   "keywords": [
     "requirejs",
