@@ -48,7 +48,8 @@ define(['babel', 'module'], function(babel, _module) {
 
             var pluginOptions = config.es6 || {},
                 fileExtension = pluginOptions.fileExtension || '.js',
-                url = req.toUrl(name + fileExtension);
+                sourceFileName = name + fileExtension,
+                url = req.toUrl(sourceFileName);
 
             // Do not load if it is an empty: url
             if (url.indexOf('empty:') === 0) {
@@ -58,7 +59,7 @@ define(['babel', 'module'], function(babel, _module) {
 
             var defaults = {
                 sourceMaps: config.isBuild ? false : 'inline',
-                sourceFileName: name
+                sourceFileName: sourceFileName
             };
             for (var key in defaults) {
                 babelOptions[key] = defaults[key];
