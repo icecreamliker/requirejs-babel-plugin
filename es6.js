@@ -41,6 +41,11 @@ define(['babel', 'module'], function(babel, _module) {
             try {
                 // Deep clone babel config (#7)
                 babelOptions = JSON.parse(JSON.stringify(config.babel));
+                // clone callbacks from babel config manually
+                var callbackNames = ['getModuleId', 'resolveModuleSource', 'shouldPrintComment', 'wrapPluginVisitorMethod'];
+                callbackNames.forEach(function(key) {
+                    babelOptions[key] = config.babel[key];
+                })
             } catch (err) {
                 babelOptions = {}
                 onload.error(err);
