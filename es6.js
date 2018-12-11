@@ -37,6 +37,23 @@ define(['babel', 'module'], function(babel, _module) {
 
         load: function(name, req, onload, config) {
 
+            var 
+              pluginOptions = config.es6 || {},
+              fileExtension = pluginOptions.fileExtension || '.js',
+              pathToRoot = pluginOptions.pathToRoot || './',  
+              sourceFileName = name + fileExtension,
+              url = req.toUrl(sourceFileName);
+
+            if (!config.isBuild) {
+              try{
+                //use of eval because firefox would not even allow to parse es6.js if not
+                eval('import(pathToRoot+name+fileExtension).then(onload).catch(function(err){console.log(err,"\\r\\ncheck your pathToRoot config in es6")});');
+                return;
+              }catch(e){
+                console.log('native import() failed, babelise the file '+url)  
+              }
+            }
+
             var babelOptions;
             try {
                 // Deep clone babel config (#7)
@@ -50,11 +67,6 @@ define(['babel', 'module'], function(babel, _module) {
                 babelOptions = {}
                 onload.error(err);
             }
-
-            var pluginOptions = config.es6 || {},
-                fileExtension = pluginOptions.fileExtension || '.js',
-                sourceFileName = name + fileExtension,
-                url = req.toUrl(sourceFileName);
 
             // Do not load if it is an empty: url
             if (url.indexOf('empty:') === 0) {
